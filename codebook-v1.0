@@ -1,0 +1,203 @@
+# Codebook v1 -- Schema-Constrained Transcript Extraction
+
+
+# Global Coding Protocol
+
+## Unit of Coding
+
+-   Code the smallest transcript span that fully supports the entity.
+-   If an entity appears multiple times, create a single entity with
+    multiple mentions.
+
+## Evidence Standard
+
+-   Extract only what is explicitly stated or strongly implied.
+-   Do not infer beyond transcript evidence.
+
+## Certainty Scoring (1--10)
+
+-   10: Explicit and unambiguous\
+-   7--9: Strongly implied\
+-   4--6: Weakly implied but plausible\
+-   1--3: Speculative (avoid coding)
+
+## Schema Constraint Rule
+
+Only use: Dataset, DetailedProblem, EvidenceArtifact, Feature, Hub,
+IntendedUse, Module, Project, Regulation, RegulatoryRequirement, Role,
+TopLevelProblem.
+
+No new categories may be created.
+
+------------------------------------------------------------------------
+
+# Inter-Coder Reliability Protocol (Added per Reviewer Feedback)
+
+## Phase 1: Anchor Set Double Coding
+
+-   A stratified subset of transcripts (minimum 20%) is independently
+    coded by two human reviewers.
+-   Reviewers work blind to each other's coding.
+
+## Phase 2: Agreement Measurement
+
+Agreement is measured using: - Entity-level precision/recall -
+Relationship agreement rate - Certainty score deviation (mean absolute
+difference) - Cohen's kappa (where applicable)
+
+## Phase 3: Disagreement Resolution
+
+-   Discrepancies are logged in a structured disagreement log.
+-   Reviewers discuss disagreements.
+-   If unresolved, a third adjudicator makes final decision.
+-   Codebook definitions are updated only if disagreement reveals
+    systematic ambiguity.
+
+## Phase 4: Drift Monitoring
+
+-   Every 10 transcripts, a calibration transcript is co-reviewed.
+-   If agreement drops below predefined threshold (e.g., κ \< 0.7),
+    recalibration is required.
+
+------------------------------------------------------------------------
+
+# Bias and Reliability Audit
+
+To mitigate systematic bias:
+
+-   Compare extraction across Role types (e.g., Clinician vs CEO)
+-   Compare extraction across TRL stages
+-   Identify systematic under-extraction or over-inference patterns
+-   Reject patterns where bias is systematic and uncorrectable
+
+LLM outputs are always validated by a human reviewer before final graph
+integration.
+
+------------------------------------------------------------------------
+
+# Entity Definitions and Coding Rules
+
+## Project
+
+Organisation or innovation initiative.
+
+**Include:** Named organisation or clearly identifiable project.\
+**Exclude:** Generic "startups" without identity.
+
+Allowed Properties: name, ProjectCode, Description, TRL,
+deployment_region, Location, latitude, longitude, start_date, stage,
+geography, scope, color
+
+------------------------------------------------------------------------
+
+## Hub
+
+Parent ecosystem organisation (accelerator, university programme,
+innovation cluster).
+
+Allowed Property: name
+
+------------------------------------------------------------------------
+
+## Role
+
+Stakeholder category relevant to system design, governance, or use.
+
+Allowed Properties: name, color, location
+
+------------------------------------------------------------------------
+
+## IntendedUse
+
+Regulatory intended purpose and operational deployment intent.
+
+Allowed Properties: id, name, intended_purpose, clinical_function,
+medical_purpose_family, output_type, time_horizon, decision_impact,
+target_user_type, use_environment, human_in_the_loop,
+direct_patient_actuation, patient_level, autonomy_level,
+safety_criticality_hint, regulatory_hooks
+
+------------------------------------------------------------------------
+
+## Dataset
+
+Dataset used or referenced in development or deployment.
+
+Allowed Properties: dataset_id, name, source_type, contains_pii
+
+Note: Only set contains_pii if explicitly stated or strongly implied.
+
+------------------------------------------------------------------------
+
+## Module
+
+Subsystem grouping features or implementing models/pipelines.
+
+Allowed Properties: module_id, name, module_type, purpose,
+regulatory_role, decision_impact, automation_level, learning_type,
+model_family, data_modality, deployment, storage, security,
+pii_handling, explainability
+
+------------------------------------------------------------------------
+
+## Feature
+
+Concrete technological capability or control.
+
+Allowed Properties: name, description, id, category, URL, color
+
+------------------------------------------------------------------------
+
+## Regulation
+
+Law, regulatory framework, or standard.
+
+Allowed Properties: id, name, scope, type, description, url, version,
+confidentiality
+
+------------------------------------------------------------------------
+
+## RegulatoryRequirement
+
+Concrete operational obligation derived from regulation.
+
+Allowed Properties: id, title, name, description, evidence,
+applies_in_stages
+
+------------------------------------------------------------------------
+
+## TopLevelProblem
+
+High-level commercial or governance problem to be resolved.
+
+Allowed Property: description
+
+------------------------------------------------------------------------
+
+## DetailedProblem
+
+Decomposition of TopLevelProblem framed as a visualization task.
+
+Allowed Property: description
+
+Must represent an actionable analytical or visual task.
+
+------------------------------------------------------------------------
+
+## EvidenceArtifact
+
+Documented evidence supporting compliance, validation, or oversight.
+
+Allowed Properties: artifact_id, name, artifact_type, origin,
+reuse_status, status, uri, last_updated
+
+------------------------------------------------------------------------
+
+# Versioning
+
+Version: v1.1\
+Changes from v1: - Added second human reviewer protocol\
+- Added inter-coder agreement metrics\
+- Formalised disagreement resolution\
+- Expanded bias audit section\
+- Clarified inclusion/exclusion rules
