@@ -1,0 +1,157 @@
+You are a senior front-end engineer and dashboard architect.
+
+Your task is to design and implement a React dashboard for a single project, using the attached project graph data JSON as the source of truth.
+
+The dashboard is for governance and compliance visibility in Health AI projects. It must be role-specific. Every dashboard view must be designed for one selected stakeholder role within the project and must align regulatory visibility with that role’s likely tasks, goals, priorities, and governance responsibilities.
+
+## Core objective
+
+Build an interactive dashboard that helps answer these questions for a given project:
+
+1. What regulations are applicable based on the project parameters?
+2. What specific regulatory requirements are likely relevant?
+3. What evidence artifacts appear to be missing, incomplete, outdated, or only weakly represented?
+4. What roles currently exist within the project, who is responsible for what, and what should each role be aware of to contribute to compliance and ethical governance?
+5. What project features are missing if the project is to better satisfy regulatory requirements?
+6. How can regulatory requirements be made visible in a way that is useful to the selected role’s day-to-day work?
+
+## Important constraints
+
+- Use the attached JSON as the main input.
+- Respect the existing ontology and data structure.
+- Where helpful you can make assumptions from the attached data.
+- Be explicit about uncertainty: if something is inferred rather than directly represented, label it as inferred.
+- The dashboard must be practical.
+- Avoid generic “AI governance score” widgets unless they are directly interpretable.
+- Design for front-end development readiness.
+
+
+## Required reasoning process
+
+First, inspect the JSON and identify:
+- the focal project
+- its project parameters
+- its current roles
+- its intended use
+- its datasets and whether they contain PII
+- its implemented features
+- its modules
+- its evidence artifacts
+- regulations and requirements already represented
+- top-level and detailed problems that are relevant to dashboarding
+
+Then infer the most useful dashboard structure.
+
+## Dashboard design requirements
+
+Design the dashboard as a set of role-based views.
+
+At minimum include:
+
+### 1. Project governance overview
+A top-level summary for the project showing:
+- project identity and context
+- stage / TRL / geography / deployment region where available
+- intended use summary
+- current roles in the project
+- current regulations and regulatory requirements represented in the data
+- evidence artifact coverage snapshot
+- feature coverage snapshot
+- high-priority compliance gaps or ambiguity flags
+
+### 2. Role-specific compliance view
+For a selected role, show:
+- role name
+- likely goals and concerns based on linked problems and project context
+- relevant regulations and requirements that the role should be aware of
+- relevant project features that support that role’s compliance work
+- relevant evidence artifacts that the role may produce, review, depend on, or be affected by
+- missing evidence or missing feature support
+- recommended priorities framed in operational language
+
+Example:
+If the role is Clinician, show what they need to know to support clinical safety, human oversight, validation, data protection, documentation, and ethical compliance in relation to their actual work.
+
+### 3. Requirement-to-implementation traceability
+A view that lets the user inspect:
+- requirement
+- why it applies
+- which features appear to fulfill it
+- which evidence artifacts support it
+- which roles are implicated
+- whether coverage looks strong, partial, weak, or absent
+
+### 4. Missing evidence artifacts
+A view that identifies likely missing or weakly represented artifacts.
+Use careful logic such as:
+- requirement exists but no linked evidence-like artifact is visible
+- evidence exists but is draft, outdated, or sparse
+- feature exists but no supporting artifact is visible
+- privacy/security-related project traits exist but supporting documentation is not evident
+
+Make this a decision-support view, not a legal claim.
+
+### 5. Missing features for stronger compliance
+A view that identifies missing or weak feature support.
+Use available requirements and existing feature coverage to infer:
+- what technical or procedural capabilities may be absent
+- which of these absences matter most for the selected role
+- which are likely foundational versus nice-to-have
+
+### 6. Problems and priorities view
+Show how:
+- project roles
+- top-level problems
+- detailed problems
+- regulations
+- requirements
+connect into a coherent governance picture.
+
+This should help explain why a requirement matters in practical project terms.
+
+## UX and interaction requirements
+
+- Use React.
+- Use TypeScript.
+- Use clean component decomposition.
+- Use a professional, minimal interface.
+- Use cards, tables, expandable trace panels, filters, badges, and compact charts where useful.
+- Include a role selector.
+- Include a requirement selector or search.
+- Include clear empty states and uncertainty labels.
+- Avoid network graphs as the default main view unless you also provide a clearer structured view.
+- Optimise for interpretability over visual novelty.
+
+
+## Data interpretation rules
+
+When analysing the JSON:
+
+- Treat the graph data as partially complete.
+- Distinguish between:
+  - explicitly represented
+  - inferred from graph structure
+  - recommended but missing
+- Do not fabricate compliance status.
+- Do not claim a project is compliant or non-compliant.
+- Instead use labels such as:
+  - represented
+  - partially evidenced
+  - weakly evidenced
+  - not evident in current data
+  - inferred relevance
+- Use project parameters such as intended use, TRL/stage, geography, deployment region, datasets containing PII, module decision impact, and role presence to infer which regulations and requirements deserve prominence.
+
+
+
+## Quality bar
+
+The result should feel like a serious governance operations dashboard for a Health AI project, not a toy demo.
+
+The dashboard must help a project team answer:
+- what applies,
+- why it applies,
+- who should care,
+- what supports it,
+- what is missing,
+- and what should be prioritised next.
