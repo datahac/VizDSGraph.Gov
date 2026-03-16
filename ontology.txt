@@ -69,6 +69,8 @@ Feature	description	Description explaining the capability implemented by the fea
 Feature	id	Unique identifier assigned to the feature within the knowledge graph.
 Feature	name	Human-readable name of the feature implemented in the project system.
 Funder	name	Name of the organization providing financial support for the project.
+Funder 	status 	If the funding has happened already, is so, the status = 'funded', otherwise, 'planned'.
+Funder	date	The date of funding, this can be estimated approximately.
 Hub	name	Name of the innovation hub, accelerator, or ecosystem associated with the project.
 IntendedUse	autonomy_level	Degree of system autonomy in decision-making (e.g., decision support vs automated action).
 IntendedUse	clinical_function	Describes the clinical or health-related function performed by the AI system.
