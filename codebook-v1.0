@@ -31,7 +31,7 @@ No new categories may be created.
 
 ------------------------------------------------------------------------
 
-# Inter-Coder Reliability Protocol (Added per Reviewer Feedback)
+# Inter-Coder Reliability Protocol
 
 ## Phase 1: Anchor Set Double Coding
 
@@ -195,8 +195,8 @@ reuse_status, status, uri, last_updated
 
 # Versioning
 
-Version: v1.1\
-Changes from v1: - Added second human reviewer protocol\
+Version: v1.2\
+Changes from v1.1: - Added second human reviewer protocol\
 - Added inter-coder agreement metrics\
 - Formalised disagreement resolution\
 - Expanded bias audit section\
