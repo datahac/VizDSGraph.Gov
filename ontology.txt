@@ -118,6 +118,7 @@ Project	problem_it_solves	Description of the main problem addressed by the proje
 Project	scope	Description of the project’s operational or research scope.
 Project	stage	Development stage of the project (e.g., prototype, pilot, deployment).
 Project	start_date	Date when the project started.
+Project	collab Project team is looking for viz research and development collaboration, 'yes' or 'no'.
 Regulation	Region	Geographic jurisdiction where the regulation applies.
 Regulation	confidentiality	Indicates whether the regulatory document or content has confidentiality restrictions.
 Regulation	description	Text description summarizing the regulatory framework.
