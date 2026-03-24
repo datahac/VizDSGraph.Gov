@@ -1,7 +1,5 @@
 # VizDSGraph
 
-<img width="1224" height="816" alt="image" src="https://github.com/user-attachments/assets/d969bb4f-c4ef-4961-88dd-872523e69413" />
-
 
 /codebook
    codebook_v1.csv
