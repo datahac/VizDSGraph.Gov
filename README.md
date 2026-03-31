@@ -24,9 +24,7 @@ Bulit using NeoDash.
 
 Fork this repository, use NeoDash or purchase (https://neo4j.com/docs/neodash-commercial/current/#_getting_access_to_neodash_commercial) a NeoDash commercial license together with a Neo4j Enterprise license.  
 
-# Architecture Summary
-
-## Overview
+## Architecture Summary
 
 The dashboard uses NeoDash as a client-side dashboard builder for Neo4j. The main application is a React 17 + Redux SPA that lets users connect to a Neo4j database, compose dashboards from reusable report cards, run Cypher queries, and render the results through a chart/report registry.
 
