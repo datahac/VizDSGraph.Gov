@@ -1,5 +1,11 @@
-# VizDSGraph
 
+# Reusable RAI Knowledge Representation for Health AI Innovation
+
+This repository contains supplementary research artefacts supporting the development and implementation of a knowledge representation for **RAI-relevant knowledge** in resource-constrained Health AI innovation teams.
+
+The repository documents the coding structure, ontology, LLM-assisted extraction procedure, and implementation used to construct the research knowledge graph. The underlying project corpus is not publicly released because it contains confidential and commercially sensitive material.
+
+## Repository contents
 
 /codebook
    codebook_v1.csv
@@ -17,6 +23,51 @@
 /kg_mapping
    code_to_domain_parameter_mapping.csv
    neo4j_schema_snapshot.cypher
+   
+
+| Path | Description |
+|---|---|
+| `codebook-v1.0` | Coding definitions and inclusion/exclusion criteria used during data extraction. |
+| `ontology.txt` | Ontology entities and relationship types used to structure the knowledge graph. |
+| `call-coding-prompt` | Prompt used for LLM-assisted extraction of candidate entities and relationships. |
+| `react-dash-prompt.txt` | Prompt associated with development of the dashboard interface. |
+| `dashboard/` | Dashboard implementation for interaction with the knowledge graph. |
+| `LICENSE` | Repository licence. |
+
+## Research workflow
+
+The ontology and coded dataset were developed iteratively through structured analysis of project records, interviews, and project artefacts.
+
+```text
+Project records / interviews / artefacts
+                |
+                v
+        Structured coding
+                |
+                v
+     Entities + typed relations
+                |
+                v
+      Cross-project comparison
+                |
+                v
+       Ontology revision
+                |
+                v
+     Re-coding where required
+                |
+                v
+ LLM-assisted candidate extraction
+                |
+                v
+       Human validation
+                |
+                v
+          Neo4j KG
+
+
+
+
 
 
 ## Project dashboard
