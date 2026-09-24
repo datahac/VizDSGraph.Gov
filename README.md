@@ -34,40 +34,6 @@ The repository documents the coding structure, ontology, LLM-assisted extraction
 | `dashboard/` | Dashboard implementation for interaction with the knowledge graph. |
 | `LICENSE` | Repository licence. |
 
-## Research workflow
-
-The ontology and coded dataset were developed iteratively through structured analysis of project records, interviews, and project artefacts.
-
-```text
-Project records / interviews / artefacts
-                |
-                v
-        Structured coding
-                |
-                v
-     Entities + typed relations
-                |
-                v
-      Cross-project comparison
-                |
-                v
-       Ontology revision
-                |
-                v
-     Re-coding where required
-                |
-                v
- LLM-assisted candidate extraction
-                |
-                v
-       Human validation
-                |
-                v
-          Neo4j KG
-
-
-
-
 
 
 ## Project dashboard
