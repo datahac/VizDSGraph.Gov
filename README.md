@@ -41,7 +41,7 @@ Bulit using NeoDash.
 
 Fork this repository, use NeoDash or purchase (https://neo4j.com/docs/neodash-commercial/current/#_getting_access_to_neodash_commercial) a NeoDash commercial license together with a Neo4j Enterprise license.  
 
-## Architecture Summary
+### Architecture Summary
 
 The dashboard uses NeoDash as a client-side dashboard builder for Neo4j. The main application is a React 17 + Redux SPA that lets users connect to a Neo4j database, compose dashboards from reusable report cards, run Cypher queries, and render the results through a chart/report registry.
 
@@ -52,9 +52,9 @@ At a high level, the system is organized around four layers:
 3. Query/report runtime: Cypher execution, result parsing, schema extraction, refresh behavior, and chart rendering.
 4. Extension surface: optional report types and behaviors such as advanced charts, forms, rule-based styling, report actions, and text-to-Cypher.
 
-## Repository Layout
+### Repository Layout
 
-### Main app
+#### Main app
 
 - [`src/`](./src) contains the production NeoDash application.
 - [`src/application/`](./src/application) owns app bootstrapping, connection state, modal state, and app-level thunks/actions/selectors.
@@ -68,16 +68,16 @@ At a high level, the system is organized around four layers:
 - [`src/modal/`](./src/modal) contains connection, onboarding, about, import/export, share, and notification dialogs.
 - [`src/utils/`](./src/utils) contains shared helpers, including proxy-aware Cypher execution utilities.
 
-### Supporting subprojects
+#### Supporting subprojects
 
 - [`server/`](./server) is a small Express-based Cypher proxy for deployments that should not expose direct browser-to-Neo4j connectivity.
 - [`docs/`](./docs) is an Antora documentation site containing the user and developer guides.
 - [`gallery/`](./gallery) is a separate React app that showcases example dashboards.
 - [`cypress/`](./cypress) contains end-to-end tests.
 
-## Runtime Architecture
+### Runtime Architecture
 
-### 1. Application startup
+#### 1. Application startup
 
 The entrypoint in [`src/index.tsx`](./src/index.tsx) initializes:
 
@@ -88,7 +88,7 @@ The entrypoint in [`src/index.tsx`](./src/index.tsx) initializes:
 
 `Application` is the top-level runtime container. It loads application configuration, manages connection and onboarding state, and decides whether to show the dashboard or placeholder UI.
 
-### 2. State management
+#### 2. State management
 
 The app uses Redux with thunk middleware and persisted browser storage.
 
@@ -104,7 +104,7 @@ This split is important architecturally:
 - `dashboard` answers "what dashboard is currently loaded and how is it configured?"
 - `sessionStorage` answers "what temporary runtime values should not become part of the saved dashboard?"
 
-### 3. Connection and query execution
+#### 3. Connection and query execution
 
 `Dashboard` creates the Neo4j access layer and exposes it through `use-neo4j`.
 
@@ -120,7 +120,7 @@ The proxy path is implemented by:
 
 The proxy deliberately blocks write-oriented or unsafe query patterns by default and serializes Neo4j values into JSON-safe payloads that the client rehydrates back into driver-compatible values.
 
-### 4. Dashboard composition
+#### 4. Dashboard composition
 
 The UI hierarchy follows this shape:
 
@@ -136,7 +136,7 @@ Responsibilities are separated as follows:
 
 This separation is one of the project’s main strengths: layout logic, query logic, and visualization logic are decoupled enough to support many chart types without duplicating the dashboard shell.
 
-### 5. Report and chart registry
+#### 5. Report and chart registry
 
 Built-in report types are registered centrally in [`src/config/ReportConfig.tsx`](./src/config/ReportConfig.tsx). Each report type defines:
 
@@ -154,7 +154,7 @@ Built-in report types are registered centrally in [`src/config/ReportConfig.tsx`
 
 This registry-driven design makes new visualizations relatively straightforward to add without rewriting the report runtime.
 
-## Extension Model
+### Extension Model
 
 Extensions are registered in [`src/extensions/ExtensionConfig.tsx`](./src/extensions/ExtensionConfig.tsx) and activated dynamically.
 
@@ -177,7 +177,7 @@ Extensions can contribute one or more of:
 
 This gives NeoDash a plugin-like architecture without a separate plugin runtime. The extension surface is compile-time integrated, but runtime-configurable.
 
-## Deployment Model
+### Deployment Model
 
 The main app is built with Webpack and emitted as a static bundle. The root [`Dockerfile`](./Dockerfile) uses a multi-stage build:
 
@@ -188,13 +188,13 @@ The main app is built with Webpack and emitted as a static bundle. The root [`Do
 
 For production setups that need a backend middle tier, the `server` subproject can be deployed alongside the frontend to provide a read-oriented Cypher proxy.
 
-## Testing and Docs
+### Testing and Docs
 
 - Cypress end-to-end tests live in [`cypress/`](./cypress).
 - Developer and user documentation are maintained in [`docs/`](./docs) using Antora.
 - The gallery app in [`gallery/`](./gallery) acts as a showcase for sample dashboards and example content.
 
-## Key Architectural Takeaways
+#### Key Architectural Takeaways
 
 - NeoDash is primarily a frontend application with optional backend support through a Cypher proxy.
 - The core domain model is dashboard -> page -> card -> report -> chart.
