@@ -24,6 +24,8 @@ The repository documents the coding structure, ontology, LLM-assisted extraction
    code_to_domain_parameter_mapping.csv
    neo4j_schema_snapshot.cypher
    
+   tool_validation_interview_guide.md
+   
 
 | Path | Description |
 |---|---|
@@ -33,6 +35,8 @@ The repository documents the coding structure, ontology, LLM-assisted extraction
 | `react-dash-prompt.txt` | Prompt associated with development of the dashboard interface. |
 | `dashboard/` | Dashboard implementation for interaction with the knowledge graph. |
 | `LICENSE` | Repository licence. |
+| tool_validation_interview_guide.md | Interview guide |
+
 
 
 
