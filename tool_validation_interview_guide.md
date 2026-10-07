@@ -1,93 +1,206 @@
-# Tool validation interview guide
+# Situated Evaluation Protocol for the Responsible AI Ontology
 
-## Purpose
+## Aim
 
-Evaluate whether the reusable Responsible AI knowledge representation can be instantiated for a familiar or previously unseen Health AI company and whether stakeholder-facing views support situated interpretation without implying automated compliance judgement.
+Assess whether the ontology can represent a real Health AI project and support useful Responsible AI reasoning by a project decision-maker.
 
-## Researcher preparation
+## Case selection
 
-If the project is already familiar, pre-populate the baseline from existing project records. Mark each item as **source-supported**, **researcher inference**, or **unknown**. At the start of the session, ask the participant to correct the pre-populated baseline rather than repeating the whole project history.
+Use a project that did not contribute to ontology construction. The participant should have direct knowledge of, or responsibility for, relevant project decisions.
 
-## A. Baseline confirmation
+---
 
-1. **Intended use**  
-   *We currently describe the intended use as: \[pre-populated statement\]. What is wrong, missing or outdated?*  
-     
-2. **Maturity / current stage**  
-   *We currently place the project at \[stage\]. Is that accurate? What is the next meaningful milestone?*  
-     
-3. **Relevant stakeholders and roles**  
-   *These are the roles/stakeholders currently represented: \[list\]. Who is missing, incorrectly represented, or no longer relevant?*  
-     
-4. **Current priorities**  
-   *We currently understand the project's one or two most important priorities to be \[X, Y\]. Is that accurate?*  
-     
-5. **Known Responsible AI / regulatory concerns**  
-   *Which ethical, regulatory, data, safety or governance concerns are already salient to the project? Which are being actively addressed?*  
-     
-6. **Existing evidence artefacts**  
-   *Which concrete artefacts already exist that could support a governance claim or milestone: ethics submissions, validation reports, data-management plans, consent materials, risk records, technical documentation, audit records, funder reports, or similar?*
+## Session 1: Initial assessment
 
-## B. Task-based evaluation
+Identify one current project decision, milestone, or problem to anchor the case.
 
-7. **Project representation**  
-   *Inspect the project-specific view. What appears correct? What is missing, uncertain, outdated or over-emphasised?*  
-   Researcher records: corrections; missing information; uncertainty; ontology/schema issue vs project-specific value issue.  
-     
-8. **Candidate requirements and rationale**  
-   *Which surfaced Responsible AI considerations or regulatory requirements appear relevant now, and why? Which are premature or irrelevant?*  
-   Follow-up: *Can you trace why the system surfaced this item?*  
-     
-9. **Provenance and inferential status**  
-   *Can you tell which items are recorded project facts, which come from an external source, and which are inferred or suggested? Is that distinction clear enough to support trust?*  
-     
-10. **Missing information**  
-    *What information would you still need before deciding whether this requirement really applies or what action to take?*  
-      
-11. **Existing evidence and gaps**  
-    *For this requirement or project need, what evidence already exists? What does it support? Is it sufficient? What is still missing?*  
-      
-12. **Roles and responsibility**  
-    *Which project role currently holds the relevant information, evidence or responsibility? Is the system's suggested owner plausible? Who should make the final decision?*  
-      
-13. **Cross-project reuse**  
-    Present at least one concrete evidence artefact, implementation mechanism or practice surfaced from another project.  
-    *Is this a plausible candidate for reuse here? What makes it transferable or non-transferable? What contextual differences matter?*  
-      
-14. **Role-specific actionability**  
-    *Does this view turn the governance issue into something actionable for this role? What, if anything, could the person do next?*  
-      
-15. **Boundary of situated judgement**  
-    *Which outputs could you act on directly, and which still require legal, regulatory, clinical, technical or organisational judgement? Where should the tool stop?*
+Ask:
 
-## C. Interaction fit
+1. **What is the project trying to do?**
+   - What is the intended use?
+   - Who are the intended users or affected stakeholders?
 
-16. **Navigation and information density**  
-    *Was the relevant information easy to locate and interpret? Where did navigation or information density become difficult?*  
-      
-17. **Preferred interaction mode**  
-    *For this kind of work, would you prefer dashboard views, graph exploration, conversational querying, or a combination? Why?*  
-      
-18. **Provenance / trust requirement**  
-    *What would you need to see to trust that regulatory and governance information is sufficiently current, complete and well-sourced for your use?*
+2. **What stage is the project at?**
+   - What has already been completed?
+   - What is the next meaningful milestone?
 
-## D. Post-use measures
+3. **What is the current decision, milestone, or problem?**
+   - What needs to be decided, resolved, or progressed now?
+   - Why is it important at this stage?
 
-Use the same 1–5 scale across participants, where 1 \= very low and 5 \= very high.
+4. **Who is involved?**
+   - Who makes or influences this decision?
+   - Who holds relevant knowledge, evidence, or responsibility?
 
-19. **Correctness / relevance:** *How correct and relevant was the information presented?* 1–5. Why?  
-      
-20. **Informativeness:** *How informative was the representation for the decisions you need to make?* 1–5. Why?  
-      
-21. **Clarity:** *How clear and interpretable was the information?* 1–5. Why?  
-      
-22. **Novelty:** *How much genuinely new information did the representation provide?* 1–5.  
-    Follow-up: *What was genuinely new, and what was already known but became more explicit or connected?*  
-      
-23. **Actionability:** *Did the representation make the next governance action easier to identify?* 1–5. Why?  
-      
-24. **Final reflection:** *What should be added, removed or changed? What is the most important limitation you encountered?*
+5. **Which Responsible AI issues are already recognised?**
+   - Consider regulatory, ethical, data, safety, governance, and implementation issues.
+   - Which are already being addressed?
 
-## Researcher coding immediately after the session
+6. **What evidence already exists?**
+   - What relevant documentation, validation evidence, risk records, ethics materials, technical documentation, or other artefacts are available?
 
-For every task, record: (a) accepted relation; (b) corrected relation; (c) rejected candidate; (d) newly identified information; (e) missing information; (f) evidence gap; (g) situated judgement required; (h) interaction/design issue; and (i) resulting design implication.
+7. **How is the participant currently approaching the decision?**
+   - What do they think needs to be considered?
+   - What are the main uncertainties or dependencies?
+   - What do they currently think should happen next?
+
+### Record
+
+Capture:
+
+- intended use and project stage;
+- focal decision or milestone;
+- relevant actors;
+- recognised Responsible AI issues;
+- existing evidence;
+- current uncertainties and dependencies;
+- proposed next actions.
+
+---
+
+## Project instantiation
+
+Encode the project using the existing ontology and available project materials.
+
+For each relevant item, record:
+
+- source;
+- whether it is directly supported, inferred, suggested, or unknown;
+- coding uncertainty;
+- missing information.
+
+Also record where the existing ontology is insufficient, including:
+
+- information that cannot be represented;
+- ambiguous concepts or relationships;
+- additional entity or relationship types that would be required;
+- existing definitions that would need revision.
+
+Create a test account for the participant.
+
+---
+
+## Session 2: Evaluation walkthrough
+
+Use the project representation to revisit the focal decision.
+
+Ask, in order:
+
+1. **Is this an accurate representation of the project?**
+   - What is correct?
+   - What is wrong, missing, outdated, or over-emphasised?
+
+2. **Does it capture the context needed to reason about the focal decision?**
+   - What important information is still absent?
+
+3. **Do the surfaced Responsible AI considerations make sense for this project?**
+   - Which are relevant?
+   - Which are premature, uncertain, or irrelevant?
+
+4. **Are the relationships understandable?**
+   - Can the participant explain why a requirement, evidence item, role, or action is connected to the project context?
+   - Which relationships require clarification?
+
+5. **Is the provenance clear enough to judge the information?**
+   - Can the participant distinguish project facts, external sources, and inferred or suggested relationships?
+
+6. **What does the representation confirm from the participant's initial reasoning?**
+
+7. **What became clearer or more explicit?**
+
+8. **Did anything new emerge?**
+   - A previously unrecognised consideration;
+   - a missing piece of evidence;
+   - a dependency;
+   - an unclear responsibility;
+   - a challenged assumption.
+
+9. **Does anything now need to be prioritised or investigated differently?**
+   - What, if anything, would the participant do next?
+
+10. **Where is further judgement required?**
+    - Which issues still require legal, regulatory, clinical, technical, or organisational interpretation?
+    - Which outputs are too uncertain or general to act on directly?
+
+For each important correction, insight, or change in reasoning, record the specific ontology relation, graph path, or view that prompted it.
+
+### Optional cross-project transfer task
+
+If cross-project reuse is part of the evaluation, present one concrete practice, evidence artefact, or implementation mechanism from another project.
+
+Ask:
+
+- Would you **accept, adapt, or reject** this for your project?
+- Why?
+- Which contextual differences determine whether it is transferable?
+
+---
+
+## Post-session ratings
+
+Use a 1–5 scale.
+
+1. **Representational fit** — How accurately did the representation capture the project context relevant to the focal decision?
+2. **Clarity** — How understandable were the relationships shown?
+3. **Decision relevance** — How useful was the representation for reasoning about the focal decision?
+4. **Actionability** — How much did it help identify what should be investigated or done next?
+
+For each rating, ask: **Why?**
+
+Then ask:
+
+- What was genuinely new?
+- What was already known but became clearer or better connected?
+- What was the most important limitation?
+
+---
+
+## Researcher coding
+
+Code findings under three headings.
+
+### Representational adequacy
+
+- accepted representation;
+- correction;
+- missing information;
+- rejected inference;
+- ambiguous representation;
+- ontology extension required.
+
+### Intelligibility
+
+- relationship understood;
+- relationship unclear;
+- useful explanatory link;
+- provenance problem;
+- excessive complexity;
+- presentation or navigation issue.
+
+### Situated decision relevance
+
+- existing reasoning confirmed;
+- issue made more explicit;
+- new consideration surfaced;
+- evidence gap identified;
+- dependency identified;
+- responsibility clarified;
+- assumption challenged;
+- priority changed;
+- possible next action identified;
+- specialist judgement required.
+
+
+
+---
+
+## Cross-case analysis
+
+Compare cases on:
+
+- what the ontology represented without modification;
+- recurring missing or ambiguous concepts;
+- which relationships were consistently useful;
+- which findings depended on project context;
+- where situated judgement remained necessary;
+- what ontology or interface changes were prompted by the cases.
